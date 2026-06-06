@@ -1,0 +1,6 @@
+{
+  "name": "pregnancy",
+  "version": "1.0.0",
+  "description": "Weekly pregnancy companion. Generates a single week's update as Obsidian-friendly markdown with six sections (baby, mum's body, partner support, what to say to her, to-dos, red flags), synthesising NHS / ACOG / RCOG / peer-reviewed physiology / Evidence Based Birth into warm-friend voice. Combined, partner, or pregnant-person audience modes.",
+  "author": { "name": "Charles Tanton" }
+}

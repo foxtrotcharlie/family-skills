@@ -1,0 +1,21 @@
+{
+  "name": "family-skills",
+  "owner": {
+    "name": "Charles Tanton",
+    "email": "foxtrotcharlie@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "Claude Code skills for pregnancy, newborn life, and family logistics.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "pregnancy",
+      "description": "Weekly pregnancy companion: generates a single week's update as an Obsidian-friendly markdown file with six sections — baby development, mum's body, partner support, what to say to her, to-dos, red flags. Combined / partner / pregnant-person audience modes. Synthesises NHS, ACOG/RCOG, peer-reviewed maternal physiology, Evidence Based Birth, and curated diet/exercise/birth-prep evidence.",
+      "version": "1.0.0",
+      "author": { "name": "Charles Tanton" },
+      "category": "lifestyle",
+      "source": "./plugins/pregnancy"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+# Provenance: Perinatal Emotional & Psychological Journey
+
+- **Date:** 2026-06-06
+- **Slug:** `perinatal-emotional-journey`
+- **Rounds:** 1 plan + 4-researcher dispatch (2 succeeded, 2 crashed) + lead-driven direct PubMed fallback for the 2 crashed slices + 1 reviewer pass + 1 fix pass (MAJOR) + 1 light-pass revision (MINOR cleanup, 2026-06-06)
+- **Sources consulted:** ~70 distinct primary or guideline sources across the four research streams (T1 normal, T2 clinical, T3 partner/couple, T4 interventions)
+- **Sources accepted:** All Tier 1 anchor citations (NICE CG192, ACOG CO 757 / CPG 4, USPSTF 2019, Cochrane Dennis & Dowswell 2013, BMJ Levis 2020 IPD-MA, Lancet 2014 perinatal mental health series, NEJM/JAMA Huybrechts 2014/2015, JAMA Paulson & Bazemore 2010, Lancet Public Health Heshmati 2023, Nature Neuroscience Hoekzema 2017, Am J Psychiatry Bloch 2000 and Bergink 2012/2015/2016, BMC Psychiatry VanderKruik 2017, J Affect Disord Yildiz 2017 + Cameron 2016, Br J Psychiatry Dennis 2017 anxiety meta-analysis, Acta Obstet Gynecol Scand O'Connell 2017 tokophobia, J Clin Psychiatry Fairbrother 2021, BJGP Pritchett 2017 exercise meta-analysis, J Pers Soc Psychol Doss 2009, J Fam Psychol Mitnick 2009, JAMA Cohen 2006 (chain-cited via MGH summaries), and others — see the full Sources section in `outputs/perinatal-emotional-journey.md`)
+- **Sources rejected:**
+  - "Woody 2017" perinatal depression meta-analysis — not found in PubMed; figure traced to Hahn-Holbrook 2018, which was substituted explicitly with a transparency note
+  - PDF-only sources (Scottish Government 2024 paternal perinatal review, Milne/Whelan/Pilkington 2015 partner-inclusive review PDF, Heshmati EPC2022 conference paper) — cited URL with full-text extraction marked blocked per workflow PDF-avoidance rule
+  - Press releases (ScienceDaily, EurekAlert, Scientific American) — used only for orientation; primary papers cited
+  - Coaching/lifestyle blog sources (mabbatical.com, rahma.health) — dropped
+  - Older SSRI-cardiac literature (Andrade, Berard pre-2014) — superseded by Huybrechts 2014/2015 with confounding adjustment
+  - Older Cochrane Daley 2007/2015 exercise reviews — superseded by Pritchett 2017
+- **Verification:** PASS WITH NOTES
+  - Reviewer pass produced 0 FATAL, 5 MAJOR, 17 MINOR. All 5 MAJOR items were addressed in `outputs/.drafts/perinatal-emotional-journey-cited.md` and on-disk verified via `grep` checks (Bloch hedge added; old "62%" framing removed; Goodman 2004 chain-citation softened; Goyal 2009 properly cited with PMID 19337701; Hiscock framing softened to "one of the strongest single-trial signals"; Smythe "3.18%" reduced to "approximately 3%"; Kamperman/Osborne phenotype-cluster percentages corrected to show depression/anxiety as at least as common as mania). Hahn-Holbrook 2018 added to source list.
+  - **Light-pass revision (2026-06-06)**: 13 targeted edits applied to address the actionable MINOR items (m1, m3, m4, m5, m6, m9, m10, m11, m12, m13, m15, m16) plus the Cohen 2006 chain-citation. Specifically:
+    - Exec Summary point 6: USPSTF Grade B reframed as *prevention in increased-risk groups*, with a separate clause clarifying CBT/IPT also have the strongest *treatment* evidence (m5).
+    - Storey 2000 small-N, cross-sectional caveat restored (m15).
+    - Gopalakrishnan SR re-labelled as in-press / 2026 early-view at time of writing (m10).
+    - EPDS table cell now includes ≥11 cutoff Sn 0.81 / Sp 0.88 from Levis 2020 alongside ≥10 and ≥13 (m4).
+    - USPSTF bullet (§4.1) now explicitly notes the figure is a *prevention* recommendation in increased-risk populations, not a treatment-of-established-illness figure (m5).
+    - ROSE attribution rephrased to clarify the ≈50% figure is the USPSTF evidence-review attribution drawing on multiple ROSE-replication trials, not a direct single-arm ROSE finding (m11).
+    - Exercise effect-size framing changed from "comparable to SSRIs" to "comparable to or somewhat larger than" with explicit numbers (−0.44 vs ≈−0.24) (m12).
+    - Cohen 2006 *JAMA* now cited with PMID 16449615 and a methodological-debate caveat; source-list entry replaced the chain-cite with a direct PubMed link (m3).
+    - Maternal-suicide claim now attributes to MBRRACE-UK reports and US state Maternal Mortality Review Committee data (m13).
+    - Neonatal adaptation 20–30% range now references Chambers 1996 *NEJM* and the ACOG/APA 2009 joint report and notes rate variability by SSRI/dose/definition (m16).
+    - Postpartum-psychosis recurrence ">50%" now explicitly flagged as *without prophylaxis*, with the Bergink-cohort ≈10% lithium-prophylaxis figure (m9).
+    - Sawyer 2012 source-list entry replaced search-query URL with PMID 22439647 and full citation (m1, m6).
+  - All light-pass edits on-disk verified via `grep` for 13 distinct fix-markers immediately after the edit.
+  - Items intentionally not changed: m2 (Hahn-Holbrook — already cited with full Frontiers Psychiatry source); m7 (Saxbe magnitude framing already qualitatively hedged); m8 (Kamperman/Osborne percentages already corrected in MAJOR pass); m14 (Dennis & Dowswell 2013 framing already accurate); m17 (search-provider degradation note retained as transparency disclosure).
+- **Capability degradations during run:**
+  - 2 of 4 researcher subagents crashed with exit code 143 (T1 normal landscape; T2 clinical conditions). Lead substituted direct PubMed search via `fetch_content` to fill the gap. Notes saved to `outputs/.drafts/perinatal-emotional-journey-research-direct.md`.
+  - All three configured web search providers (Exa, Perplexity, Gemini) returned errors during this run (Exa rate-limited; Perplexity/Gemini missing API keys). Direct PubMed search-page fetches via `fetch_content` were used instead and worked.
+  - PDF parsing avoided per workflow rules; full-text extraction of PDF-only government and review sources marked blocked.
+  - No `verifier` subagent available in this runtime; lead handled citation step directly. `reviewer` subagent worked correctly and produced the verification report.
+- **Plan:** `outputs/.plans/perinatal-emotional-journey.md`
+- **Per-researcher briefs:** `outputs/.plans/perinatal-emotional-journey-T1.md` through `-T4.md`
+- **Research files:**
+  - `outputs/.drafts/perinatal-emotional-journey-research-partner.md` (T3 — partner & couple)
+  - `outputs/.drafts/perinatal-emotional-journey-research-interventions.md` (T4 — screening, psychotherapy, pharm, red flags)
+  - `outputs/.drafts/perinatal-emotional-journey-research-direct.md` (lead-substituted T1 + T2 evidence after subagent crashes)
+- **Verification report:** `outputs/.drafts/perinatal-emotional-journey-verification.md`
+- **Draft / cited drafts:**
+  - `outputs/.drafts/perinatal-emotional-journey-draft.md`
+  - `outputs/.drafts/perinatal-emotional-journey-cited.md` (final candidate; M1–M5 fixes applied and on-disk verified)
+- **Final artifact:** `outputs/perinatal-emotional-journey.md`
